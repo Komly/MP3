@@ -1,0 +1,13 @@
+{
+    "name": "komly/mp3",
+    "description": "Utility class for mp3 format",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Komly",
+            "email": "komly@yandex.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
