@@ -37,7 +37,7 @@ class MP3 {
     public function getFileSize()
     {
         if (is_file($this->fileName) && is_readable($this->fileName)){
-            return filesize($this->filesize);
+            return filesize($this->fileName);
         }
 
         return null;
@@ -61,7 +61,6 @@ class MP3 {
      */
     public function getHeader()
     {
-        error_reporting(E_ALL);
         $data = $this->getData();
         $idx = strpos($data, 0xFF);
         $id3Header = substr($data, 0, $idx - 1);

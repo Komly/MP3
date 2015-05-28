@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(E_ALL);
+
 require __DIR__ . '/../Lib/MP3.php';
 require __DIR__ . '/../Lib/MP3Header.php';
 
@@ -14,7 +16,7 @@ class MP3Test extends PHPUnit_Framework_TestCase {
     
     public function testGetFileSize()
     {
-        $fileName = 'song.mp3';
+        $fileName = __DIR__ . '/test.mp3';
         $mp3 = new MP3($fileName);
         $this->assertEquals($mp3->getFileSize(), filesize($fileName));
 
@@ -35,5 +37,6 @@ class MP3Test extends PHPUnit_Framework_TestCase {
         $this->assertEquals($header->getLayerVersion(),     MP3Header::LAYER_VERSION_1);
         $this->assertEquals($header->getLayerDescription(), MP3Header::LAYER_DESCRIPTION_3);
         $this->assertEquals($header->getProtection(),       MP3Header::LAYER_UNPROTECTED);
+        $this->assertEquals($header->getBitrate(),          256);
     }
 }
