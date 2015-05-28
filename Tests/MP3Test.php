@@ -34,9 +34,9 @@ class MP3Test extends PHPUnit_Framework_TestCase {
         $header = $mp3->getHeader();
         $this->assertInstanceOf('MP3Header', $header);
 
-        $this->assertEquals($header->getLayerVersion(),     MP3Header::LAYER_VERSION_1);
-        $this->assertEquals($header->getLayerDescription(), MP3Header::LAYER_DESCRIPTION_3);
-        $this->assertEquals($header->getProtection(),       MP3Header::LAYER_UNPROTECTED);
-        $this->assertEquals($header->getBitrate(),          256);
+        $this->assertEquals($header->getLayerVersion(),      MP3Header::LAYER_VERSION_1);
+        $this->assertEquals($header->getLayerDescription(),  MP3Header::LAYER_DESCRIPTION_3);
+        $this->assertEquals($header->getProtection(),        MP3Header::LAYER_UNPROTECTED);
+        $this->assertEquals($header->getBitrate(),           256);
     }
 }

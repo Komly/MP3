@@ -66,6 +66,12 @@ class MP3Header {
             -1, -1, -1, -1, -1
         )
     );
+    
+
+    /**
+     * Sampling rate frequency
+     */
+    protected $samplingFrequency;
 
 
     /**
@@ -130,7 +136,8 @@ class MP3Header {
                         break;
                 }
                 break;
-            case this::LAYER_VERSION_2:
+            case self::LAYER_VERSION_2:
+            case self::LAYER_VERSION_2_5:
                 switch($this->layerDescription) {
                     case self::LAYER_DESCRIPTION_1:
                         $this->bitrate = $this->bitrateHash[$bitrateBit][3];
@@ -145,23 +152,44 @@ class MP3Header {
         }
     }
 
+    /**
+     * Returns MPEG Audio version
+     */
     public function getLayerVersion()
     {
         return $this->layerVersion;
     }
 
+    /**
+     * Returns Layer description
+     */
     public function getLayerDescription()
     {
         return $this->layerDescription;
     }
 
+    /**
+     * Returns CRC protection flag
+     */
     public function getProtection()
     {
         return $this->protection;
     }
+    
 
+    /**
+     * Returns Bitrate index
+     */
     public function getBitrate()
     {
         return $this->bitrate;
+    }
+
+    /**
+     * Returns sampling rate frequency
+     */
+    public function getSamplingFrequency()
+    {
+        return $this->samplingFrequency;
     }
 }
